@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://cedxrfaiu52lj"]
+
+[ext_resource type="Script" path="res://CamSprite.gd" id="1_1y6jq"]
+[ext_resource type="Shader" path="res://Camera.gdshader" id="1_4dm7c"]
+[ext_resource type="Texture2D" uid="uid://bx2ygk852bg61" path="res://icon.svg" id="2_2r87i"]
+
+[sub_resource type="CameraTexture" id="CameraTexture_4hcn5"]
+which_feed = 1
+
+[sub_resource type="CameraTexture" id="CameraTexture_5643t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jm3i8"]
+shader = ExtResource("1_4dm7c")
+shader_parameter/camera_y = SubResource("CameraTexture_5643t")
+shader_parameter/camera_CbCr = SubResource("CameraTexture_4hcn5")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CamSprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_jm3i8")
+scale = Vector2(8.95312, 5.08594)
+texture = ExtResource("2_2r87i")
+centered = false
+script = ExtResource("1_1y6jq")
